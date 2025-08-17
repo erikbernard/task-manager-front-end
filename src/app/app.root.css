@@ -1,0 +1,15 @@
+.root-container{
+  min-height: 100vh;
+  background-color: #ff725e12;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 1rem;
+}
+.root-image{
+  bottom: 0;
+  width: 24%;
+  position: absolute;
+  margin: 1rem;
+  z-index: -1;
+}

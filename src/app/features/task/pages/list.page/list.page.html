@@ -1,0 +1,64 @@
+<section class="list-container">
+  <div class="list-profile">
+    <img class="list-profile__image" [src]="image+(userInitial$ | async)" alt="profile">
+
+    <div class="list-profile__links">
+      <a [routerLink]="['/perfil']">Visualizar Perfil</a>
+    </div>
+  </div>
+  <div class="list-card">
+    <div class="list-card__header">
+      <h1 class="list-card__title">Lista de tarefas</h1>
+      <button class="list-card__button" (click)="onCreateTask()">Nova Atividade</button>
+    </div>
+    <div class="list-card__content">
+      <div class="list-card__filters">
+        <div class="filter-group">
+          <label for="priority-select">Prioridade:</label>
+          <select
+            id="priority-select"
+            [(ngModel)]="selectedPriority"
+            (change)="onFilterChange()">
+            <option value="">Todas</option>
+            <option value="HIGH">Alta</option>
+            <option value="MEDIUM">Média</option>
+            <option value="LOW">Baixa</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="status-select">Status:</label>
+          <select
+            id="status-select"
+            [(ngModel)]="selectedStatus"
+            (change)="onFilterChange()">
+            <option value="">Todos</option>
+            <option value="PENDING">Pendente</option>
+            <option value="STARTED">Iniciada</option>
+            <option value="COMPLETED">Completa</option>
+            <option value="BLOCKED">Bloqueada</option>
+            <option value="NOSTARTED">Não Iniciada</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="list-card__tasks">
+        <div class="list-card__tasks-grid">
+          <app-task-card
+            *ngFor="let item of allTask$ | async"
+            (onEditTask)="onEdiitTask($event)"
+            [item]="item"
+          />
+        </div>
+      </div>
+      <div class="list-card__footer">
+        <app-pagination
+          *ngIf="pagination$ | async as paginationData"
+          [pagination]="paginationData"
+          (pageChange)="onPageChange($event)">
+        </app-pagination>
+      </div>
+    </div>
+  </div>
+
+</section>

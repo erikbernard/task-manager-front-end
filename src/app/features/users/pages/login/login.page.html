@@ -1,0 +1,66 @@
+<section class="login-container">
+  <div class="login-form">
+
+    <div class="login-form__header">
+      <h1 class="login-form__title">Login</h1>
+      <p class="login-form__subtitle">Bem-vindo de volta!</p>
+    </div>
+
+    <app-loading [isVisible]="loanding" />
+
+    <form *ngIf="!loanding" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form__form">
+
+      <fieldset class="login-form__group">
+        <label for="email" class="login-form__label">E-mail</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="seu.email@exemplo.com"
+          class="login-form__input"
+          [ngClass]="{ 'login-form__input--error': email?.invalid && (email?.dirty || email?.touched) }">
+
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="login-form__error-message">
+          <span *ngIf="email?.errors?.['required']">O e-mail é obrigatório.</span>
+          <span *ngIf="email?.errors?.['email']">Por favor, insira um e-mail válido.</span>
+        </div>
+      </fieldset>
+
+      <fieldset class="login-form__group">
+        <label for="password" class="login-form__label">Senha</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="********"
+          class="login-form__input"
+          [ngClass]="{ 'login-form__input--error': password?.invalid && (password?.dirty || password?.touched) }">
+
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="login-form__error-message">
+          <div *ngIf="password?.errors?.['required']">A senha é obrigatória.</div>
+          <div *ngIf="password?.errors?.['minlength']">A senha deve ter no mínimo 8 caracteres.</div>
+        </div>
+      </fieldset>
+
+      <div class="login-form__group">
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid"
+          class="login-form__button">
+          Entrar
+        </button>
+      </div>
+
+    </form>
+
+    <hr >
+
+    <div class="login-form__footer">
+      <div  class="login-form__link">
+        Borar fazer parte também,
+        <a routerLink="/register">registre-se aqui!</a>
+      </div>
+    </div>
+
+  </div>
+</section>

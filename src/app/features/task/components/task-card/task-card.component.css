@@ -1,0 +1,138 @@
+
+.task-component-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.task-component-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.task-component-card__header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-component-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: capitalize;
+}
+
+.task-component-card__body {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.task-component-card__description {
+  margin: 0;
+  color: #6a7282;
+  line-height: 1.6;
+}
+.task-component-card__divisor{
+  border-color: #ff725e21;
+  margin: 0 1.6rem;
+}
+.task-component-card__footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.task-component-card__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.task-component-card__priority,
+.task-component-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.task-component-card__priority svg,
+.task-component-card__status svg {
+  width: 14px;
+  height: 14px;
+}
+
+.task-component-card__button {
+  width: fit-content;
+  padding: 0.25rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.task-component-card__button:hover {
+  filter: contrast(0.9);
+}
+.task-component-card__button:disabled {
+  cursor: not-allowed;
+  filter: opacity(0.5);
+}
+
+/* Modificadores de Prioridade */
+.task-component-card__priority--high {
+  background-color: var(--color-primary);
+}
+
+.task-component-card__priority--medium {
+  background-color: #FFB74D;
+}
+
+.task-component-card__priority--low {
+  background-color: #81C784;
+}
+
+/* Modificadores de Status */
+.task-component-card__status--pending {
+  background-color: #64B5F6;
+}
+
+.task-component-card__status--completed {
+  background-color: #81C784;
+}
+
+.task-component-card__status--started {
+  background-color: #FFB74D;
+}
+
+.task-component-card__status--blocked {
+  background-color: #e57373;
+}
+
+.task-component-card__status--nostarted {
+  background-color: #BDBDBD;
+}
+
+.task-component-card__dates {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.8rem;
+  color: #6a7282;
+}

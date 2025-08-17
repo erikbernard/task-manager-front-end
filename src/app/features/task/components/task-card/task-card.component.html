@@ -1,0 +1,26 @@
+<div class="task-component-card">
+  <div class="task-component-card__header">
+    <h3 class="task-component-card__title">{{ item.title }}</h3>
+    <button class="task-component-card__button" (click)="onEditTaskFn()">Editar</button>
+  </div>
+  <hr class="task-component-card__divisor">
+  <div class="task-component-card__body">
+    <p class="task-component-card__description">{{ item.description }}</p>
+  </div>
+  <hr class="task-component-card__divisor">
+  <div class="task-component-card__footer">
+    <div class="task-component-card__details">
+      <span class="task-component-card__priority" [ngClass]="getPriorityClass(item.priority)">
+        {{ getPriorityLabel(item.priority) }}
+      </span>
+      <span class="task-component-card__status" [ngClass]="getStatusClass(item.status)">
+        <span [innerHTML]="getStatusIcon(item.status)"></span>
+        {{ getStatusLabel(item.status) }}
+      </span>
+    </div>
+    <div class="task-component-card__dates">
+      <span class="task-component-card__date">Criado em: {{ item.created_at | date:'dd/MM/yyyy' }}</span>
+      <span class="task-component-card__date">Atualizado em: {{ item.updated_at | date:'dd/MM/yyyy' }}</span>
+    </div>
+  </div>
+</div>
