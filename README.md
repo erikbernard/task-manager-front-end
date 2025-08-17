@@ -44,20 +44,31 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 
-Clone este repositório usando o comando:
+## Clone este repositório usando o comando:
 
 ```bash
 git clone https://github.com/erikbernard/task-manager-front-end
 ```
 Acesse a pasta `task-manager`:
 ```bash
-cd task-manager
-
+cd task-manager-front-end
 ```
 npm run install
 ```
-```
 npm run start
 ```
-E acesse a pagina `http://localhost:4200/`. Certifique que o backend estaja rodando na porta 3333
+
+## Usando o docker
+
+Para iniciar o ambiente Docker, execute o seguinte comando:
+   ```bash
+    docker-compose up -d
+
+    # ou no docker engine
+
+    docker compose up -d
+   ```
+   Isso iniciará os contêineres Docker necessários.
+
+E acesse a pagina `http://localhost:4200/`. Certifique que o backend(usando docker ou local) estaja rodando na porta 3333
 

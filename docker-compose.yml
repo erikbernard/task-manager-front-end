@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    container_name: task-manager-frontend
+    ports:
+      # Mapeia a porta 4200 do seu computador para a porta 80 do contêiner
+      - "4200:80"
+    restart: unless-stopped
