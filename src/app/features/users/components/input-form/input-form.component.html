@@ -1,0 +1,35 @@
+<fieldset class="form-group">
+  <label [for]="ngControl?.name" class="form-group__label">{{ label }}</label>
+
+  <input
+    [id]="ngControl?.name"
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value ?? ''"
+    [disabled]="isDisabled"
+    (input)="onInputChange($event)"
+    (blur)="onTouched()"
+    class="form-group__input"
+    [ngClass]="{ 'form-group__input--error': formControl?.invalid && (formControl?.dirty || formControl?.touched) }"
+  />
+
+  <div
+    *ngIf="formControl?.invalid && (formControl?.dirty || formControl?.touched)"
+    class="form-group__error-message"
+  >
+    <ng-container [ngSwitch]="true">
+      <div *ngSwitchCase="formControl.hasError('required')">
+        O campo {{ label.toLowerCase() }} é obrigatório.
+      </div>
+      <div *ngSwitchCase="formControl.hasError('minlength')">
+        Deve ter no mínimo {{ formControl.errors?.['minlength'].requiredLength }} caracteres.
+      </div>
+      <div *ngSwitchCase="formControl.hasError('email')">
+        Por favor, insira um e-mail válido.
+      </div>
+      <div *ngSwitchCase="formControl.hasError('min')">
+        O valor mínimo é {{ formControl.errors?.['min'].min }}.
+      </div>
+    </ng-container>
+  </div>
+</fieldset>

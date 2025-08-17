@@ -1,0 +1,41 @@
+<section class="profile-container">
+
+  <div class="profile-card">
+    <div class="profile-card__content">
+
+      <img class="profile-image" [src]="image+(userInitial$ | async)" alt="profile">
+      <div>
+        <h1 class="profile-card__title">Bem-vindo, {{(userData$ | async)?.name}}!</h1>
+        <p class="profile-card__subtitle">É ótimo ter você aqui.</p>
+
+        <hr class="profile-card__divisor">
+
+        <div class="profile-card__body">
+          <h2 class="profile-card__body-title">Detalhes da Conta</h2>
+
+          <div class="profile-card__body-item">
+            <svg width="16px" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <span>{{(userData$ | async)?.email}}</span>
+          </div>
+
+          <div class="profile-card__body-item">
+            <svg width="16px" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span>Membro desde: {{(userData$ | async)?.created_at | date:'dd/MM/yyyy'  }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="profile-card__divisor">
+
+    <div class="profile-card__footer">
+      <div class="profile-card__links">
+        <a [routerLink]="['/task/list']">Visualizar Tarefas</a>
+      </div>
+
+      <button class="profile-card__button" (click)="onLogout()">
+        Sair da conta
+      </button>
+    </div>
+  </div>
+</section>
