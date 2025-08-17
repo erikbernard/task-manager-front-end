@@ -1,0 +1,120 @@
+
+
+.task-form {
+}
+
+.task-form__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.task-form__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.task-form__title > span{
+  color: var(--color-primary);
+}
+
+.task-form__subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+}
+
+.task-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.task-form__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.task-form__input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.05);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.task-form__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+}
+
+.task-form__input--error {
+  border-color: var(--color-error);
+}
+
+.task-form__input--error:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4);
+}
+
+.task-form__error-message {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-error);
+}
+
+.task-form__button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.task-form__button:hover {
+  filter: contrast(0.9);
+}
+
+.task-form__button:disabled {
+  cursor: not-allowed;
+  filter: opacity(0.5);
+}
+.task-form__button--cancel {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: #959595;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.task-form__button--cancel:hover {
+  filter: contrast(0.8);
+}
+
+.task-form__footer{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 2rem;
+}

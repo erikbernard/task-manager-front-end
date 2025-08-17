@@ -1,0 +1,89 @@
+<div class="task-form">
+
+  <div class="task-form__header" *ngIf="data">
+    <h1 class="task-form__title">Editando a tarefa <span>{{data.title}}</span></h1>
+    <p class="task-form__subtitle">Opa está na hora de atualizar a sua tarefa! É rápido e fácil.</p>
+  </div>
+  <div class="task-form__header" *ngIf="!data">
+    <h1 class="task-form__title">Vamos criar sua nova tarefa!</h1>
+    <p class="task-form__subtitle">Organizar seu dia, faz parte.</p>
+  </div>
+
+  <form [formGroup]="taskform" class="task-form__form">
+
+    <div class="task-form__group">
+      <label for="title" class="task-form__label">Título</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        placeholder="Minha terefa..."
+        class="task-form__input"
+        [ngClass]="{ 'task-form__input--error': title?.invalid && (title?.dirty || title?.touched) }">
+      <div *ngIf="title?.invalid && (title?.dirty || title?.touched)" class="task-form__error-message">
+        <div *ngIf="title?.errors?.['required']">O título é obrigatório.</div>
+      </div>
+    </div>
+
+    <div class="task-form__group">
+      <label for="description" class="task-form__label">Descrição</label>
+      <input
+        id="description"
+        type="text"
+        formControlName="description"
+        placeholder="Sobre a tarefa..."
+        class="task-form__input"
+        [ngClass]="{ 'task-form__input--error': description?.invalid && (description?.dirty || description?.touched) }">
+      <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="task-form__error-message">
+        <div *ngIf="description?.errors?.['required']">A descrição é obrigatório.</div>
+      </div>
+    </div>
+
+    <div class="task-form__group">
+      <label for="priority" class="task-form__label">Prioridade</label>
+
+      <select
+        id="priority"
+        formControlName="priority"
+        class="task-form__input"
+        [ngClass]="{ 'task-form__input--error': priority?.invalid && (priority?.dirty || priority?.touched) }">
+
+        <option [ngValue]="null" disabled>Selecione uma prioridade</option>
+        <option *ngFor="let key of priorityKeys" [value]="key">{{ priorityLabels[key] }}  </option>
+      </select>
+
+      <div *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)" class="task-form__error-message">
+        <div *ngIf="priority?.errors?.['required']">A prioridade é obrigatória.</div>
+      </div>
+    </div>
+
+    <div class="task-form__group">
+      <label for="status" class="task-form__label">Status</label>
+
+      <select
+        id="status"
+        formControlName="status"
+        class="task-form__input"
+        [ngClass]="{ 'task-form__input--error': status?.invalid && (status?.dirty || status?.touched) }">
+
+        <option [ngValue]="null" disabled>Selecione um status</option>
+        <option *ngFor="let key of statusKeys" [value]="key">{{ statusLabels[key] }} </option>
+      </select>
+
+      <div *ngIf="status?.invalid && (status?.dirty || status?.touched)" class="task-form__error-message">
+        <div *ngIf="status?.errors?.['required']">O status é obrigatório.</div>
+      </div>
+    </div>
+
+  </form>
+
+  <hr >
+</div>
+
+<div class="task-form__footer"  *ngIf="data">
+  <button  [disabled]="taskform.invalid" type="button" class="task-form__button" (click)="taskUpdate()">Salvar mudanças</button>
+  <button type="button" class="task-form__button--cancel" (click)="dialogRef.close()">Cancelar</button>
+</div><div class="task-form__footer"  *ngIf="!data">
+  <button  [disabled]="taskform.invalid" type="button" class="task-form__button" (click)="taskCreate()">Adicionar novo</button>
+  <button type="button" class="task-form__button--cancel" (click)="dialogRef.close()">Cancelar</button>
+</div>
