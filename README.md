@@ -42,46 +42,32 @@ Além de funcionalidades visíveis, o projeto utiliza recursos e conceitos impor
   - Uso de ambientes (`environment.ts` / `environment.prod.ts`).  
   - Estrutura escalável, já preparada para novas features.  
 
-
-
-
 ## Funcionalidades
 
 Abaixo estão as funcionalidades planejadas e o status atual de implementação de cada uma delas:
 
-
 - [x] Autenticação de Usuários: Sistema completo de login e cadastro para garantir a privacidade e segurança das tarefas.
-
-- [] Editar informações de usuario.
-- [] Deletar conta do usuario.
-- [] Alterção de senha do conta do usuario.
-
+- [ ] Editar informações de usuario.
+- [ ] Deletar conta do usuario.
+- [ ] Alterção de senha do conta do usuario.
 - [x] Criação e Gestão de Tarefas (CRUD):
-
   - [x] Adicionar novas tarefas com título, descrição e prioridade e status.
-
   - [x] Visualizar todas as tarefas em um layout de lista.
-
   - [x] Editar os detalhes de uma tarefa existente.
-
-  - [] Excluir tarefas.
-
+  - [ ] Excluir tarefas.
 - [x] Paginação baseada da listar.
-
 - [x] Filtros e Ordenação: Filtrar tarefas por status (pendente, em andamento, concluída) ou prioridade.
-
-- [] Busca por titulo da tafefa: Encontrar tarefas específicas instantaneamente através de uma barra de pesquisa reativa.
-
+- [ ] Busca por titulo da tafefa: Encontrar tarefas específicas instantaneamente através de uma barra de pesquisa reativa.
 - [x] Design Responsivo: A aplicação se adapta perfeitamente a diferentes tamanhos de tela (desktops, tablets e smartphones).
-- [] Toash de para mostrar feedeback para usuario quando uma operação concluido exemplo de secesso, error e edição.
-- [] Nova visualização no formato Drag-and-drop de tarefas para quadro kanba usando angular cdk.
+- [ ] Toash de para mostrar feedeback para usuario quando uma operação concluido exemplo de secesso, error e edição.
+- [ ] Nova visualização no formato Drag-and-drop de tarefas para quadro kanba usando angular cdk.
 
 ## Funcionalidades com problemas encontrados
 
-- [] Ajusta a validação de token, para caso quando ocorrer o refresh da pagina ainda permanece logado.
-- [] No formulario de criação de tarefas contêm apenas validação de campos obrigatórios, adicionar tamenho minimo para campos de titulo e descrição.
-- [] A listagem quando não contêm nenhum item em alguns momentos não atualiza quando inserido uma nova tarefas.
-- [] A filtro não resetar em alguns momentos para todas. 
+- [ ] Ajusta a validação de token, para caso quando ocorrer o refresh da pagina ainda permanece logado.
+- [ ] No formulario de criação de tarefas contêm apenas validação de campos obrigatórios, adicionar tamenho minimo para campos de titulo e descrição.
+- [ ] A listagem quando não contêm nenhum item em alguns momentos não atualiza quando inserido uma nova tarefas.
+- [ ] A filtro não resetar em alguns momentos para todas. 
 
 ## Tecnologias utilizadas
 
@@ -92,7 +78,7 @@ Abaixo estão as funcionalidades planejadas e o status atual de implementação 
 - **JWT:** autenticação baseada em tokens  
 - **Gerenciamento de estado leve:** BehaviorSubject  
 
-# Demo / Deploy
+## Demo / Deploy
 
 Acesse a versão hospedada:  
 🔗 **[Task Manager Frontend - Deploy Vercel](https://task-manager-front-end-dun.vercel.app/)**  
